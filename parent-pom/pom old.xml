@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>ee6c5298-77b5-46e5-9cff-0a279620d1b7</groupId>
+		<artifactId>solutions-bom</artifactId>
+		<version>1.0.0</version>
+		<relativePath>../bom/pom.xml</relativePath>
+	</parent>
+	<groupId>ee6c5298-77b5-46e5-9cff-0a279620d1b7</groupId>
+	<artifactId>solutions-packaging-pom</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+
+	<name>solutions-packaging-pom</name>
+	
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<excludes>
+					<exclude>**/*.xml</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${resources.plugin.version}</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+						<nonFilteredFileExtensions>
+							<nonFilteredFileExtension>jar</nonFilteredFileExtension>
+							<nonFilteredFileExtension>jks</nonFilteredFileExtension>
+							<nonFilteredFileExtension>p12</nonFilteredFileExtension>
+							<nonFilteredFileExtension>crt</nonFilteredFileExtension>
+						</nonFilteredFileExtensions>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>${clean.plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.mule.tools.maven</groupId>
+					<artifactId>mule-maven-plugin</artifactId>
+					<version>${mule.maven.plugin.version}</version>
+					<extensions>true</extensions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
